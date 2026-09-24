@@ -1,20 +1,32 @@
 {
   "name": "@pipeworx/mcp-climatiq",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Climatiq MCP — carbon footprint calculator with emission factors",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "bin": {
+    "mcp-climatiq": "bin/cli.js"
+  },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "climatiq"],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pipeworx-io/mcp-climatiq"
+    "url": "git+https://github.com/pipeworx-io/mcp-climatiq.git"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "tsx": "^4.19.0"
+  },
   "devDependencies": {
-    "typescript": "^5.7.0"
+    "typescript": "^5.9.3",
+    "@cloudflare/workers-types": "^4.20260405.1"
+  },
+  "pipeworx": {
+    "sourceHash": "v1-f5511487ba2332cc3fe0fa91e3c01da40f3a5044802f133bc72eef9704587b02",
+    "sourceCommit": "60f04b68c347e970c6be94a53439d1364061fc06"
   }
 }
