@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-climatiq",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Climatiq MCP — carbon footprint calculator with emission factors",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-f5511487ba2332cc3fe0fa91e3c01da40f3a5044802f133bc72eef9704587b02",
-    "sourceCommit": "60f04b68c347e970c6be94a53439d1364061fc06"
+    "sourceHash": "v1-e592bc98d5df58c592b3aa1aacb6b5df74840213f2e8a253bbe98b99f6e15d05",
+    "sourceCommit": "5b29c2b0c11e1fcd954969a245b474e6e9475116"
   }
 }
