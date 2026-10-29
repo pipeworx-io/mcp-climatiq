@@ -1,0 +1,74 @@
+[
+  {
+    "name": "search_factors",
+    "description": "Search Climatiq's emission-factor database. Use to discover factor IDs and required parameters before calling estimate_emissions. Filter by query, category, source (e.g., \"EPA\", \"DEFRA\"), region (ISO code), or year.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Free-text search (e.g., \"electricity grid\", \"concrete production\")"
+        },
+        "category": {
+          "type": "string",
+          "description": "Climatiq category (e.g., \"electricity\", \"fuel\", \"freight\", \"computing\")"
+        },
+        "source": {
+          "type": "string",
+          "description": "Source dataset (e.g., \"EPA\", \"DEFRA\", \"BEIS\", \"ecoinvent\")"
+        },
+        "region": {
+          "type": "string",
+          "description": "ISO-3166 region code (e.g., \"US\", \"GB\", \"DE\")"
+        },
+        "year": {
+          "type": "number",
+          "description": "Publication year"
+        },
+        "unit_type": {
+          "type": "string",
+          "description": "Activity unit type (Energy, Volume, Distance, Mass, etc.)"
+        },
+        "results_per_page": {
+          "type": "number",
+          "description": "1-100 (default 25)"
+        },
+        "page": {
+          "type": "number",
+          "description": "1-based page (default 1)"
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "estimate_emissions",
+    "description": "Calculate kgCO₂e for an activity. Pass an emission_factor with at minimum `activity_id` (from search_factors) or `id`, plus the required `parameters` (e.g., `{ energy: 200, energy_unit: \"kWh\" }`). Returns CO₂e + breakdown.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "emission_factor": {
+          "type": "object",
+          "description": "Selector object — at minimum {activity_id: \"...\"} or {id: \"...\"}. May add region, year, source for disambiguation."
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Activity quantities matching the factor's required unit type (e.g., {energy:200, energy_unit:\"kWh\"})."
+        }
+      },
+      "required": [
+        "emission_factor",
+        "parameters"
+      ]
+    }
+  },
+  {
+    "name": "list_unit_types",
+    "description": "List supported unit-type families (Energy / Volume / Distance / Mass / etc.) and their valid units.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  }
+]
